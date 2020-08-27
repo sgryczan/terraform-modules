@@ -11,3 +11,16 @@ variable "values_yaml" {
 variable "catalog_name" {
     default = "helm-stable-v3"
 }
+
+variable "create_secret" {
+    type = bool
+    default = false
+}
+
+variable "hudson_util_secret" {
+    default = ""
+}
+
+variable "master_key" {
+    default = ""
+}
