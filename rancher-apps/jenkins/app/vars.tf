@@ -24,3 +24,7 @@ variable "hudson_util_secret" {
 variable "master_key" {
     default = ""
 }
+
+variable "chart_version" {
+    default = "latest"
+}

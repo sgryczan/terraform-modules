@@ -45,5 +45,6 @@ resource "rancher2_app" "app" {
   project_id = rancher2_project.project.id
   target_namespace = rancher2_namespace.namespace.name
   template_name = "jenkins"
+  template_version = var.chart_version
   values_yaml = var.values_yaml
 }
