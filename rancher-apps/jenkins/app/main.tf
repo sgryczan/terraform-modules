@@ -34,8 +34,8 @@ resource "rancher2_secret" "secret" {
   project_id = rancher2_project.project.id
   namespace_id = rancher2_namespace.namespace.id
   data = {
-    hudson.util.Secret = var.hudson_util_secret
-    master.key = var.master_key
+    "hudson.util.Secret" = var.hudson_util_secret
+    "master.key" = var.master_key
   }
 }
 
