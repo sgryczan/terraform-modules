@@ -12,13 +12,6 @@ provider "rancher2" {
   insecure = true
 }
 
-resource "rancher2_catalog" "bitnami" {
-  name = "bitnami"
-  url = "https://charts.bitnami.com/bitnami"
-  version = "helm_v3"
-}
-
-
 data "rancher2_cluster" "cluster" {
   name = var.cluster_name
 }
