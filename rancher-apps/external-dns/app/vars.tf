@@ -8,3 +8,7 @@ variable "answers" {
     description = "Answers for external-dns Helm chart"
     default = {}
 }
+
+variable "catalog_name" {
+    default = "bitnami"
+}

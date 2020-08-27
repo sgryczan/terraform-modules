@@ -30,7 +30,7 @@ resource "rancher2_namespace" "namespace" {
 
 resource "rancher2_app" "app" {
   name = "external-dns"
-  catalog_name = rancher2_catalog.bitnami.name
+  catalog_name = var.catalog_name
   project_id = rancher2_project.project.id
   target_namespace = rancher2_namespace.namespace.name
   template_name = "external-dns"
