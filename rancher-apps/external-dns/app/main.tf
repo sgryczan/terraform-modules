@@ -6,12 +6,6 @@ terraform {
   }
 }
 
-provider "rancher2" {
-  api_url = var.rancher_url
-  token_key = var.rancher_token
-  insecure = true
-}
-
 data "rancher2_cluster" "cluster" {
   name = var.cluster_name
 }
