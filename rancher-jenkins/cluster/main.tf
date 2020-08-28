@@ -27,6 +27,7 @@ resource "rancher2_cluster" "cluster" {
     name = var.cluster_name
     cluster_template_id = data.rancher2_cluster_template.template.id
     cluster_template_revision_id = data.rancher2_cluster_template.template.template_revisions.0.id
+    enable_cluster_monitoring = var.enable_cluster_monitoring
 }
 
 resource "rancher2_node_pool" "aio" {

@@ -43,3 +43,8 @@ variable "master_key" {
 variable "jenkins_chart_version" {
     default = "latest"
 }
+
+variable "enable_cluster_monitoring" {
+    type = bool
+    default = true
+}
