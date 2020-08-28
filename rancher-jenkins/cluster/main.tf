@@ -9,12 +9,6 @@ terraform {
   }
 }
 
-provider "rancher2" {
-  api_url = var.rancher_url
-  token_key = var.rancher_token
-  insecure = true
-}
-
 data "rancher2_cluster_template" "template" {
   name = var.rke_template_name
 }
@@ -80,10 +74,6 @@ module "external-dns" {
     answers = var.external_dns_values
 }
 
-locals {
-    jenkins_values = base64encode(file("${path.root}/jenkins-values.yaml"))
-}
-
 module "jenkins" {
     depends_on = [rancher2_cluster.cluster]
     source = "git::https://github.com/sgryczan/terraform-modules.git//rancher-apps/jenkins/app?ref=dev"
@@ -94,7 +84,7 @@ module "jenkins" {
     cluster_name = var.cluster_name
     chart_version = var.jenkins_chart_version
     node_pool_ids = "${var.single_node ? [rancher2_node_pool.aio[0].id] : [rancher2_node_pool.workers[0].id]}"
-    values_yaml = local.jenkins_values
+    values_yaml = var.jenkins_values
     create_secret = var.jenkins_create_secret
     hudson_util_secret = var.hudson_util_secret
     master_key = var.master_key
