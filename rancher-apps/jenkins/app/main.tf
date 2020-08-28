@@ -12,6 +12,7 @@ data "rancher2_cluster" "cluster" {
 
 resource "rancher2_cluster_sync" "cluster" {
   cluster_id =  data.rancher2_cluster.cluster.id
+  node_pool_ids = var.node_pool_ids == [] ? null : var.node_pool_ids
 }
 
 resource "rancher2_project" "project" {

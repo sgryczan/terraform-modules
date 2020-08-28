@@ -28,3 +28,8 @@ variable "master_key" {
 variable "chart_version" {
     default = "latest"
 }
+
+variable "node_pool_ids" {
+    type = list
+    default = []
+}
