@@ -11,7 +11,7 @@ data "rancher2_cluster" "cluster" {
 }
 
 resource "rancher2_cluster_sync" "cluster" {
-  cluster_id =  rancher2_cluster.cluster.id
+  cluster_id =  data.rancher2_cluster.cluster.id
   node_pool_ids = [rancher2_node_pool.foo.id]
 }
 
